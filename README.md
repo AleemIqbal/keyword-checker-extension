@@ -1,4 +1,4 @@
-<h1>Keyword Checker</h1>
+<h1>Keyword Checker Chrome Extension</h1>
 	<p>Keyword Checker is a Google Chrome extension that helps you check for missing keywords in the content of the current web page. The extension works by analyzing the content of the page and comparing it to a list of predefined keywords.</p>
 <h2>Installation</h2>
 <p>To install the extension, please follow these steps:</p>
