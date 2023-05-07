@@ -1,15 +1,15 @@
 {
-    "manifest_version": 2,
-    "name": "Keyword Checker",
-    "version": "1.0",
-    "description": "Check for missing keywords in the content of the current web page.",
-    "permissions": ["activeTab", "tabs"],
-    "browser_action": {
-      "default_icon": "icon.png",
-      "default_popup": "popup.html",
-      "default_title": "Keyword Checker"
-    },
-    "icons": {
-      "48": "icon.png"
-    }
+  "manifest_version": 3,
+  "name": "Keyword Checker",
+  "version": "1.0",
+  "description": "Check for missing keywords in the content of the current web page.",
+  "permissions": ["activeTab", "tabs", "scripting"],
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Keyword Checker"
+  },
+  "icons": {
+    "48": "icon.png"
   }
+}

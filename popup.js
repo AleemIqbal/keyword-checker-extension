@@ -14,10 +14,9 @@ document.getElementById('keyword-checker-form').addEventListener('submit', funct
 
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     const activeTab = tabs[0];
-    chrome.tabs.executeScript(activeTab.id, { file: 'content.js' }, function () {
-      if (chrome.runtime.lastError) {
-        resultDiv.innerHTML = 'Error: ' + chrome.runtime.lastError.message;
-      } else {
+    chrome.scripting
+      .executeScript({ target: { tabId: activeTab.id }, files: ['content.js'] })
+      .then(() => {
         chrome.tabs.sendMessage(activeTab.id, { action: 'check_keywords', keywords: keywordsInput.value }, function (response) {
           if (chrome.runtime.lastError) {
             resultDiv.innerHTML = 'Error: ' + chrome.runtime.lastError.message;
@@ -29,7 +28,9 @@ document.getElementById('keyword-checker-form').addEventListener('submit', funct
             }
           }
         });
-      }
-    });
+      })
+      .catch((error) => {
+        resultDiv.innerHTML = 'Error: ' + error.message;
+      });
   });
 });
