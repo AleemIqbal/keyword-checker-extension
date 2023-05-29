@@ -6,11 +6,11 @@ function copyToClipboard(text) {
   document.execCommand('copy');
   document.body.removeChild(el);
 }
-
 document.getElementById('keyword-checker-form').addEventListener('submit', function (event) {
   event.preventDefault();
   const keywordsInput = document.getElementById('keywords');
-  const resultDiv = document.getElementById('result');
+  const missingKeywordsDiv = document.getElementById('missing-keywords');
+  const presentKeywordsDiv = document.getElementById('present-keywords');
 
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     const activeTab = tabs[0];
@@ -19,18 +19,22 @@ document.getElementById('keyword-checker-form').addEventListener('submit', funct
       .then(() => {
         chrome.tabs.sendMessage(activeTab.id, { action: 'check_keywords', keywords: keywordsInput.value }, function (response) {
           if (chrome.runtime.lastError) {
-            resultDiv.innerHTML = 'Error: ' + chrome.runtime.lastError.message;
+            missingKeywordsDiv.innerHTML = 'Error: ' + chrome.runtime.lastError.message;
           } else {
-            resultDiv.innerHTML = response.result;
-            const missingKeywords = response.result.match(/Missing Keywords: (.+)/);
+            const missingKeywords = response.result.match(/Missing Keywords: (.+?)\. Present Keywords:/);
+            const presentKeywords = response.result.match(/Present Keywords: (.+)/);
             if (missingKeywords) {
+              missingKeywordsDiv.innerHTML = '<strong>Missing Keywords:</strong> ' + missingKeywords[1];
               copyToClipboard(missingKeywords[1]);
+            }
+            if (presentKeywords) {
+              presentKeywordsDiv.innerHTML = '<strong>Present Keywords:</strong> ' + presentKeywords[1];
             }
           }
         });
       })
       .catch((error) => {
-        resultDiv.innerHTML = 'Error: ' + error.message;
+        missingKeywordsDiv.innerHTML = 'Error: ' + error.message;
       });
   });
 });
