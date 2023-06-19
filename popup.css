@@ -41,6 +41,21 @@ button:hover {
   background-color: #0056b3;
 }
 
-#result {
+.result-box {
   font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
+  margin-top: 10px;
+}
+
+.missing-keywords {
+  color: #d9534f;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.present-keywords {
+  color: #5cb85c;
+  font-weight: bold;
 }

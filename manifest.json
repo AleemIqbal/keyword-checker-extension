@@ -1,15 +1,17 @@
 {
-  "manifest_version": 3,
-  "name": "Keyword Checker",
-  "version": "1.0",
-  "description": "Check for missing keywords in the content of the current web page.",
-  "permissions": ["activeTab", "tabs", "scripting"],
-  "action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html",
-    "default_title": "Keyword Checker"
-  },
-  "icons": {
-    "48": "icon.png"
-  }
+   "action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html",
+      "default_title": "Keyword Checker"
+   },
+   "description": "Check for missing keywords in the content of the current web page.",
+   "icons": {
+      "48": "icon.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkRE5hQ/JWsQai3hjO6DrPILHjGy3cUgfT2GzWP50HO09E6Lzg0z7kYwHiBx2x9X9Xr9ixzzo5znRozzTsvyZ/d51FYOBLi3vuVtGyTQ7rIfJtfg9BUdipV/V/gmjBqk+zhqF74PfN2TsbqbMda8ZG/5vCFERE9WxDtMwe3b5hBV580xS1lx3EV6/3+VJfdz3JphuyI077ZmN1vPethqGspHZbaeprvgf5n7Iokoi04Qf+oCKOg1EpgEZSwI5FitSOYEUAsmoRlNCyD4xN5hgoqBBHQ+/ds+Qy4Uifbo5nKUH/p3KYuq3RRKw2mjAJdr+zmZemYPK65iX0+eoRVUhEQIDAQAB",
+   "manifest_version": 3,
+   "name": "Keyword Checker",
+   "permissions": [ "activeTab", "scripting" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.2"
 }
